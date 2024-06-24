@@ -1,5 +1,8 @@
 <div>
-    <h2>All Blog Posts</h2>
+    <div class="flex justify-between items-center">
+    <h2 class="my-2 flex-1">All Blog Posts</h2>
+    <%= button_to "new post", new_blog_post_path, method: :get, class: "bg-gray-100 px-4 py-2 rounded hover:bg-gray-400" if user_signed_in? %>
+    </div>
     <% @blog_posts.each do |blog_post| %>
         <div>
             <div class="flex justify-between items-center">
@@ -23,5 +26,7 @@
         </div>
     <% end %>
 
-    <%= button_to "new post", new_blog_post_path, method: :get, class: "bg-gray-100 px-4 py-2 rounded hover:bg-gray-400" if user_signed_in? %>
+    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
+    
 </div>
