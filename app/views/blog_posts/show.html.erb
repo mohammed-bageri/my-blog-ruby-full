@@ -1,3 +1,5 @@
+
+<%= image_tag @blog_post.cover_image if @blog_post.cover_image.present? %>
 <h2><%= @blog_post.title %></h2>
 <p><%= @blog_post.content %></p>
 

@@ -12,6 +12,11 @@
     </div>
 
     <div class="flex flex-col">
+        <%= form.label :cover_image %>
+        <%= form.file_field :cover_image %>
+    </div>
+
+    <div class="flex flex-col">
         <%= form.label :content %>
         <%= form.rich_text_area :content %>
     </div>

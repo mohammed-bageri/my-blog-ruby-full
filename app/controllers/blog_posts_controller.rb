@@ -4,6 +4,8 @@ class BlogPostsController < ApplicationController
 
   def index
     @pagy, @blog_posts = pagy(user_signed_in? ? BlogPost.sorted : BlogPost.published.sorted)
+    rescue
+      redirect_to root_path(page: 1)
   end
 
   def show
@@ -48,6 +50,6 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :content, :published_at)
+    params.require(:blog_post).permit(:title, :content, :cover_image, :published_at)
   end
 end
