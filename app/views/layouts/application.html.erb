@@ -11,16 +11,34 @@
   </head>
 
   <body class="prose mx-auto">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    
 
-    <% if user_signed_in? %>
+    
+    
+
+    <div class="bg-slate-500 rounded px-4 py-8 mb-2 justify-between items-center flex">
+      <h1 class="flex m-0 items-center "><%= button_to "My Blog", root_path, method: :get %></h1>
+      <% if user_signed_in? %>
       <%# <%= link_to "Profile", edit_user_registration_path %> 
-      <%= button_to "Log out", destroy_user_session_path, method: :delete%>
+      <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "bg-gray-100 m-0 px-4 py-2 rounded hover:bg-gray-400" %>
     <% else %>
-      <%= link_to "Log in", new_user_session_path %>
+      <%= button_to "Log in", new_user_session_path, method: :get, class: "bg-gray-100 m-0 px-4 py-2 rounded hover:bg-gray-400" %>
       <%# <%= link_to "Sign up", new_user_registration_path %> 
     <% end %>
+    </div>
+
+    <% if notice %>
+      <div class="rounded bg-green-300 my-1 px-4 py-1">
+        <p class="notice m-0"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="rounded bg-red-300 my-1 px-4 py-1">
+      <p class="alert m-0"><%= alert %></p>
+      </div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
