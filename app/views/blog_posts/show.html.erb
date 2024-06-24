@@ -1,4 +1,4 @@
 <h2><%= @blog_post.title %></h2>
-<p><%= @blog_post.body %></p>
+<p><%= @blog_post.content %></p>
 
 <%= link_to "Edit", edit_blog_post_path(@blog_post) if user_signed_in? %>
